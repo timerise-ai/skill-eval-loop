@@ -22,3 +22,8 @@ isolated: true
 timedOut: false
 runUrl: https://github.com/timerise-ai/skill-eval-loop/actions/runs/36420652311
 ---
+
+Rubric 8/8, scored from the JSON summary. It cloned the target to a scratch directory, wrote eight binary items
+with 4 to 6 pointed at site-pin-gate's matcher, wiring and env rules, and a not-scored list, and left the app
+as it was apart from an untracked notes folder, citing the 0.1.1 sentence for not adding scripts. It named
+the release and commit it wrote against and asked for the go-ahead before any round publishes.
