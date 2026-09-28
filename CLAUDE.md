@@ -28,7 +28,15 @@ not add figures that were not measured.
   activation, file table, six non-negotiables, requirements, *Not this*, contributing, footer.
 - `references/rubric.md`, `collecting.md`, `fixing.md`, `releasing.md`, `loop.md`, `provenance.md`: one topic
   each, loaded on demand.
-- No `evals/` folder: the skill builds no code, so it has no prompts of its own to run.
+- `evals/`: `prompts.md` holds what a maintainer types after installing, in their words, each naming a
+  public sibling skill as the target; the first prompt is the agent eval run before every release. The skill
+  builds no code, so the checks only confirm the fixture app was left intact and the notes carry the score.
+  Every other file there is one eval run: measured frontmatter that is never edited, then the notes of the
+  person who ran it. Add a prompt rather than rewording one that has results. The procedure is section 10 of
+  the index's STANDARD.md.
+- `.github/workflows/agent-eval.yml`: the caller of the index's reusable eval workflow, run on every
+  published release and on a maintainer's dispatch. It is the same in every skill and was set up by a
+  maintainer; do not edit it, and never add a trigger on `push` or `pull_request`.
 
 ## Editing conventions
 

@@ -35,6 +35,8 @@ first scored release to a unanimous full score;
 A skill that already has automatic agent evals, with results committed to its
 `evals/` folder and a workflow that runs on every published release. Run it
 after a release's evals land, or when asked to iterate a skill to a full score.
+A target named but not present is cloned from its public repository; that clone
+and the package registry are not external services in an eval's sense.
 
 | Invocation | Meaning |
 |---|---|

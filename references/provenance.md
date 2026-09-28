@@ -92,6 +92,11 @@ Designed in this skill and never exercised in the recorded session:
   model, but the session scored without comparing them; Codex's change between
   the baseline and round 1 was read from its results afterwards. The local
   rerun's `--model` flag follows from the index pinning each agent's model.
+- **This skill's own agent evals.** The fixture is an empty Next.js app with no
+  eval logs and no publishing rights, so its prompts name a public sibling skill
+  to clone, and a run shows how far an agent follows the loop without them. The
+  line in `SKILL.md` saying a public clone is not an external service was
+  written for these runs, from critical fact 4.
 - **The read_logs.py and extract_blocks.py scripts** as files. The session ran
   the same logic inline; the scripts here were written from it and checked
   against that session's logs.

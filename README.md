@@ -83,11 +83,14 @@ rather than assuming it fired. Only `SKILL.md` is read up front; the `references
 | `CHANGELOG.md` | One section per release, newest first |
 | `CLAUDE.md` | The editing conventions, for an agent editing this repository |
 | `LICENSE` | MIT |
+| `evals/` | The prompts a maintainer types after installing (`prompts.md`) and one file per agent eval: the skill installed into an empty Next.js app, one prompt naming a sibling skill, no help, then type-checked, built and tested |
+| `.github/workflows/agent-eval.yml` | The caller of the index's reusable eval workflow, run on every published release and on a maintainer's dispatch |
 
-The skill builds no code, so it carries no `evals/` folder of its own. The seam with the target skill is its
-own rules and recipes, read and never rewritten: rubric items 4 to 6 come from the target's non-negotiables,
-and the template check and commit convention from the target's `CLAUDE.md`. The prompt, the unattended note,
-the harness and the workflow belong to the index and stay outside it.
+The skill builds no code, so its evals score the agent's fidelity to the loop, not the app: the checks only
+confirm the app was left intact, and the notes on each run carry the score. The seam with the target skill is
+its own rules and recipes, read and never rewritten: rubric items 4 to 6 come from the target's
+non-negotiables, and the template check and commit convention from the target's `CLAUDE.md`. The prompt, the
+unattended note, the harness and the workflow belong to the index and stay outside it.
 
 ## The six non-negotiables
 

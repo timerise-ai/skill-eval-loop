@@ -13,7 +13,7 @@ First release.
 
 - `SKILL.md`: the loop from a release's automatic agent evals to a full score,
   with five critical facts, six hard rules, the invocation table and the quick
-  start.
+  start; a target that is not present is cloned from its public repository.
 - `references/rubric.md`: the eight-item fidelity rubric, how to derive its
   skill-specific items, what is not scored, and how scores are written into
   result bodies.
