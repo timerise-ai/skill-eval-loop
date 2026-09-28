@@ -93,9 +93,11 @@ Designed in this skill and never exercised in the recorded session:
   the baseline and round 1 was read from its results afterwards. The local
   rerun's `--model` flag follows from the index pinning each agent's model.
 - **This skill's own agent evals.** The fixture is an empty Next.js app with no
-  eval logs and no publishing rights, so its prompts name a public sibling skill
-  to clone, and a run shows how far an agent follows the loop without them. The
-  line in `SKILL.md` saying a public clone is not an external service was
+  eval logs and no publishing rights. Its first prompts named a public sibling
+  skill to clone; from the release after 0.1.1 they name no target, since the
+  loop hardens any skill, and a run shows how far an agent applies the loop's
+  contract without one. The runs of the earlier prompts were removed with them.
+  The line in `SKILL.md` saying a public clone is not an external service was
   written for these runs, from critical fact 4. The sentence after it, on where
   the clone goes and leaving the working directory as it was, followed 0.1.0's
   runs, in which Codex copied the target's templates and tests into the app.
