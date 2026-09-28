@@ -23,3 +23,8 @@ isolated: true
 timedOut: false
 runUrl: https://github.com/timerise-ai/skill-eval-loop/actions/runs/36459829774
 ---
+
+Rubric 8/8, scored from the JSON summary. With no target named it wrote the eight binary items to an
+untracked `skill-eval-notes/rubric.md`, left 4 to 6 and the target's templates, runner, count, hard rules
+and handover points as still needed rather than picking a skill, and added the not-scored list and the stop
+rule. It reverted the build's `tsconfig.json` reformat so the app was left as it was.
