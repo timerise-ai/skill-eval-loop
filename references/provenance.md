@@ -1,7 +1,7 @@
 # Provenance
 
-This skill was extracted from one maintainer session on a published Timerise
-skill: a Next.js module that puts a shared-PIN gate in front of a whole site.
+The loop was worked out in one maintainer session on a published Timerise
+skill, the recorded session: a Next.js module that puts a shared-PIN gate in front of a whole site.
 That skill already had an eval workflow running Claude Code, Codex and Gemini
 CLI on prompt 1 of its eval prompts at every published release. The session
 took it from 0.3.2 to 0.3.7. The first two releases were fixed ad hoc from
@@ -77,7 +77,7 @@ in 0.3.3; a hard rule in `SKILL.md` in 0.3.4 did.
 
 ## Added
 
-Designed in this skill and never exercised in the source session:
+Designed in this skill and never exercised in the recorded session:
 
 - **The local rerun with the index harness.** Planned for summaries that hint
   at a deviation; no summary in the session needed one.

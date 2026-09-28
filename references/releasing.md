@@ -117,14 +117,14 @@ commits its own result file; collect them as a round.
 ## Commit hygiene
 
 - Stage named files only; never `git add -A` in a skill repository.
-- Follow the maintainer's commit convention for trailers. The source session's
+- Follow the maintainer's commit convention for trailers. The recorded session's
   maintainer forbids AI attribution trailers in commit messages; check
   `git log -1 --format=%B` after each commit.
 - Never push anything from the scratch project or the logs directory.
 
 ## Checklist
 
-- [ ] Templates extracted, type-checked, and both runners report the documented count
+- [ ] Templates written out, type-checked, and both runners report the documented count
 - [ ] `fix(skill)` commit, then `chore(release): X.Y.Z` with only the changelog and README
 - [ ] Annotated tag, pushed, confirmed on the remote
 - [ ] Release published with its changelog section as notes

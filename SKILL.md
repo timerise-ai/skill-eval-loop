@@ -26,8 +26,8 @@ log, not in the result's checks**, and every deviation traces back to a
 sentence in the skill that allowed it. Score the log against a fixed rubric,
 fix the sentence, and let the next release's eval prove the fix.
 
-Extracted from one session that took a Next.js skill from its first scored
-release to a unanimous full score in three rounds;
+Written by the maintainer who has run this loop on a published skill, from its
+first scored release to a unanimous full score;
 [provenance.md](references/provenance.md) has the record.
 
 ## When to use
@@ -35,6 +35,17 @@ release to a unanimous full score in three rounds;
 A skill that already has automatic agent evals, with results committed to its
 `evals/` folder and a workflow that runs on every published release. Run it
 after a release's evals land, or when asked to iterate a skill to a full score.
+
+| Invocation | Meaning |
+|---|---|
+| `/skill-eval-loop` | The skill repository in the working directory, from its latest release |
+| `/skill-eval-loop score` | Score the latest release's runs and stop; no fix, no release |
+| `/skill-eval-loop <path>` | The skill repository at `<path>` |
+
+Pushing tags and publishing releases is outward-facing. Confirm once, before the
+first round, that every round may push and publish unattended; then report per
+round and stop early only if a run fails outright or a fix would weaken one of
+the skill's non-negotiables.
 
 ## When NOT to use
 
@@ -63,9 +74,15 @@ round n:  release vX.Y.Z --> eval workflow (claude-code, codex, gemini-cli)
           release: CHANGELOG, tag, push, gh release create --> round n+1
 ```
 
+The seam with the target skill is its own rules and recipes, read, never
+rewritten: rubric items 4 to 6 come from the target's non-negotiables
+([rubric.md](references/rubric.md)), and the template check and commit
+convention from its `CLAUDE.md` ([releasing.md](references/releasing.md)).
+There is no `adaptation.md`; this paragraph stands in for it.
+
 ## Critical facts
 
-1. **Every check can pass while the skill fails.** In the source session, all
+1. **Every check can pass while the skill fails.** In the recorded session, all
    21 runs across six releases passed typecheck, build and tests, while agents
    patched templates, converted the suite to another runner and widened a
    security boundary. The rubric, not `result: pass`, is the score.
@@ -104,21 +121,9 @@ round n:  release vX.Y.Z --> eval workflow (claude-code, codex, gemini-cli)
 > are `chore(evals)`; a round with nothing to fix re-runs by dispatch, not by a
 > release.
 
-> **Never stop before the stop rule says so.** At least three rounds; unanimous
-> full score through round five; after that, two of three agents.
-
-## Invocation
-
-| Invocation | Meaning |
-|---|---|
-| `/skill-eval-loop` | The skill repository in the working directory, from its latest release |
-| `/skill-eval-loop score` | Score the latest release's runs and stop; no fix, no release |
-| `/skill-eval-loop <path>` | The skill repository at `<path>` |
-
-Pushing tags and publishing releases is outward-facing. Confirm once, before the
-first round, that every round may push and publish unattended; then report per
-round and stop early only if a run fails outright or a fix would weaken one of
-the skill's non-negotiables.
+> **Never change the stop rule once round one starts, and never stop before it
+> says so.** At least three rounds; unanimous full score through round five;
+> after that, two of three agents.
 
 ## Quick start
 
@@ -142,6 +147,6 @@ the skill's non-negotiables.
 | Turning a deviation into a fix | root cause, deviation, literal wording, improvisation, open redirect, probe, sandbox offline, line budget | [fixing.md](references/fixing.md) |
 | Shipping a round | verify templates, tsc, bun test, vitest, CHANGELOG, annotated tag, gh release create, workflow_dispatch | [releasing.md](references/releasing.md) |
 | When to stop, what to report | stop rule, minimum rounds, unanimous, 2:1 majority, round table, autonomy | [loop.md](references/loop.md) |
-| Where this came from | provenance, source session, scores per round, kept deliberately, added | [provenance.md](references/provenance.md) |
+| Where this came from | provenance, recorded session, scores per round, kept deliberately, added | [provenance.md](references/provenance.md) |
 
 Part of the [Timerise Skills](https://github.com/timerise-ai/skills) index, which lists the sibling skills.

@@ -25,5 +25,5 @@ First release.
 - `references/releasing.md`: the template check with `extract_blocks.py`, the
   patch release, and the dispatch round.
 - `references/loop.md`: rounds, the stop rule, autonomy and the reports.
-- `references/provenance.md`: the session the loop was extracted from, with
-  its scores per round.
+- `references/provenance.md`: the session the loop was worked out in, with
+  its scores per round, what was kept deliberately and what was added.

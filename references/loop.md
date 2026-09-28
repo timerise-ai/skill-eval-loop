@@ -5,7 +5,7 @@
 | Round | Starts from | Ends with |
 |---|---|---|
 | Baseline (0) | the latest release's runs, already committed | scores in their result bodies; the fixes for round 1 |
-| 1 … n | a release cut from the previous round's fixes | three new runs, scored |
+| 1 to n | a release cut from the previous round's fixes | three new runs, scored |
 
 The baseline is scored, never released. Round 1 is the first release this loop
 cuts.
@@ -23,13 +23,13 @@ Evaluate after scoring each round, in this order:
    agents score full. Name the third agent's failed items in the final report
    as open work.
 
-| Scores in a round | Round 1-2 | Round 3-5 | Round 6+ |
+| Scores in a round | Rounds 1 to 2 | Rounds 3 to 5 | Round 6 on |
 |---|---|---|---|
 | 3 of 3 full | continue (dispatch) | **stop** | **stop** |
 | 2 of 3 full | continue | continue | **stop** |
 | fewer | continue | continue | continue |
 
-The defaults are the source session's: minimum three, unanimity through five,
+The defaults are the recorded session's: minimum three, unanimity through five,
 two of three after. Ask for different bounds before the first round if the
 user gives any; never change them mid-loop.
 
@@ -76,9 +76,9 @@ Watching <run id>.
 ## Bookkeeping
 
 Results from the same agent, prompt and day are suffixed `-2`, `-3` and so on
-by the harness, so a day's rounds sort in order. Keep a scratch note of
-`round → version → run id → result files`; it is what the final report is
-built from, and the result files alone do not say which round they were.
+by the harness, so a day's rounds sort in order. Keep a scratch note that maps
+each round to its version, its run id and its result files; it is what the
+final report is built from, and the result files alone do not say which round they were.
 
 ## Checklist
 

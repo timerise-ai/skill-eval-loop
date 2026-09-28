@@ -6,7 +6,7 @@ that is wrong. Find which, and fix it there. The agent is never the fix.
 
 ## Root causes
 
-| Cause | What it looks like | Seen in the source session | Fix |
+| Cause | What it looks like | Seen in the recorded session | Fix |
 |---|---|---|---|
 | **Literal wording** | the agent did exactly what a sentence says, and the sentence is wrong | "list both variables" produced an `.env.example` without the third variable | correct the sentence everywhere it appears, including checklists |
 | **Ambiguous environment note** | the agent over-reads the eval's unattended note | "no external services are reachable" read as "no package registry", so vitest was never installed and the suite was converted | say in the skill what the note does not forbid ("the package registry is not an external service") |
@@ -34,7 +34,7 @@ for (const raw of ['/a/..//evil.example', '/.//evil.example', '/a/%2e%2e//evil.e
 }
 ```
 
-Run it in the scratch project where the templates are extracted
+Run it in the scratch project where the templates are written out
 ([releasing.md](releasing.md)), with `bun probe.ts`.
 
 | Probe result | Verdict | Action |

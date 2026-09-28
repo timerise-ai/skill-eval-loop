@@ -55,7 +55,7 @@ State these in the rubric so nobody scores them by accident:
 
 ## Worked example: a proxy-layer PIN gate
 
-The rubric the source session used on a Next.js skill that gates a whole site
+The rubric the recorded session used on a Next.js skill that gates a whole site
 from `proxy.ts`:
 
 1. Checks: `result: pass`, typecheck, build and tests `pass`.
