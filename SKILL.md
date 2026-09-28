@@ -36,7 +36,9 @@ A skill that already has automatic agent evals, with results committed to its
 `evals/` folder and a workflow that runs on every published release. Run it
 after a release's evals land, or when asked to iterate a skill to a full score.
 A target named but not present is cloned from its public repository; that clone
-and the package registry are not external services in an eval's sense.
+and the package registry are not external services in an eval's sense. Clone it
+to a scratch directory, and leave a working directory that is not the target as
+it was: no dependency, script, config or copied code, only the loop's notes.
 
 | Invocation | Meaning |
 |---|---|

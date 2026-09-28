@@ -96,7 +96,9 @@ Designed in this skill and never exercised in the recorded session:
   eval logs and no publishing rights, so its prompts name a public sibling skill
   to clone, and a run shows how far an agent follows the loop without them. The
   line in `SKILL.md` saying a public clone is not an external service was
-  written for these runs, from critical fact 4.
+  written for these runs, from critical fact 4. The sentence after it, on where
+  the clone goes and leaving the working directory as it was, followed 0.1.0's
+  runs, in which Codex copied the target's templates and tests into the app.
 - **The read_logs.py and extract_blocks.py scripts** as files. The session ran
   the same logic inline; the scripts here were written from it and checked
   against that session's logs.
