@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0] - 2026-09-28
 
-First release.
+First release: the loop that takes a skill from passing agent evals to a full
+rubric score on every agent.
 
 ### Added
 
