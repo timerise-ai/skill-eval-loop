@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2026-09-28
+
+Patch release, from scoring the prompt-1 agent eval runs against 0.1.0.
+
+### Changed
+
+- `SKILL.md`: a missing target is cloned to a scratch directory, and a working
+  directory that is not the target is left as it was: no dependency, script,
+  config or copied code, only the loop's notes. Codex had copied the target's
+  templates and tests into the app.
+- `references/provenance.md`: the sentence is recorded as an addition.
+
 ## [0.1.0] - 2026-09-28
 
 First release: the loop that takes a skill from passing agent evals to a full
