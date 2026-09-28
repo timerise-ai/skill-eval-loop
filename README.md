@@ -121,7 +121,7 @@ agent sessions, so the skill confirms once before the first round and then runs 
 
 | Not this | Use instead |
 |---|---|
-| Writing a new skill, or extracting one from an app | `extract-skill` or `skill-creator` |
+| Writing a new skill, or turning an app's module into one | `extract-skill` or `skill-creator` |
 | Cutting a release without scoring evals | `bumpv` |
 | Checking an app's code against its docs | `code-audit` |
 | Changing the eval harness, prompts or workflow | The skills index repository, by a maintainer |

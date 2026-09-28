@@ -54,7 +54,7 @@ Short, the same shape every round:
 | Agent | Score | Notes |
 |---|---|---|
 | claude-code | 8/8 | none |
-| codex | 8/8 | first clean run: no template edits |
+| codex | 8/8 | first clean run: no template edits; model changed since round 1 |
 | gemini-cli | 7/8 | `.env.example` left out a variable; the skill said "list both variables" |
 
 **Round 3: v0.3.7 released** (<release URL>)
@@ -71,6 +71,8 @@ Watching <run id>.
   action it needs outside the skill (apps built from earlier versions).
 - How each agent was scored (diff, summary, local rerun), so the reader knows
   what the scores rest on.
+- Each agent's model per round, with any change marked at the round it
+  happened.
 - What changed for the catalog: the current version, a changed test count.
 
 ## Bookkeeping

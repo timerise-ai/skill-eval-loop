@@ -18,8 +18,8 @@ First release.
   skill-specific items, what is not scored, and how scores are written into
   result bodies.
 - `references/collecting.md`: finding, waiting for and downloading a release's
-  eval run, and `read_logs.py`, which prints each agent's summary and Codex's
-  final diff.
+  eval run, each agent's model noted per round, and `read_logs.py`, which
+  prints each agent's summary and Codex's final diff.
 - `references/fixing.md`: the root-cause table for deviations, the
   reproduce-before-adopt procedure, and where each kind of fix goes.
 - `references/releasing.md`: the template check with `extract_blocks.py`, the

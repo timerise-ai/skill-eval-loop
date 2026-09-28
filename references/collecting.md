@@ -9,9 +9,9 @@ run, wait for it, pull the bot's commits, download the logs, read each one.
 
 | Agent | Result file | Log artifact | What the log holds |
 |---|---|---|---|
-| claude-code | `evals/<date>-claude-code-p1[-k].md` | `agent-log-claude-code-p1` | `exit N`, then one JSON object; the summary is `.result`, turns are `.num_turns` |
-| codex | `evals/<date>-codex-p1[-k].md` | `agent-log-codex-p1` | the plain-text final message, then `--- stderr ---` with the whole transcript: every command, its output, and the working diff after each turn |
-| gemini-cli | `evals/<date>-gemini-cli-p1[-k].md` | `agent-log-gemini-cli-p1` | `exit N`, then one pretty-printed JSON object; the summary is `.response`, tool calls are under `.stats.tools` |
+| claude-code | `evals/<date>-claude-code-p1[-k].md` | `agent-log-claude-code-p1` | `exit N`, then one JSON object; the summary is `.result`, turns are `.num_turns`, the models are the keys of `.modelUsage` |
+| codex | `evals/<date>-codex-p1[-k].md` | `agent-log-codex-p1` | the plain-text final message, then `--- stderr ---` with a header naming `model:` and `reasoning effort:`, and the whole transcript: every command, its output, and the working diff after each turn |
+| gemini-cli | `evals/<date>-gemini-cli-p1[-k].md` | `agent-log-gemini-cli-p1` | `exit N`, then one pretty-printed JSON object; the summary is `.response`, tool calls are under `.stats.tools`, the models under `.stats.models` |
 
 Only the Codex log shows code. For Claude Code and Gemini the summary is what
 you score, and a local rerun is what you do when the summary is not enough.
@@ -40,13 +40,19 @@ git pull --ff-only
 for c in $(git log --format=%h -3); do
   f=$(git show "$c" --name-only --format= | head -1)
   echo "== $f"
-  grep -E '^(agent|skillVersion|durationMinutes|filesChanged|linesAdded|result|  (typecheck|build|tests)):' "$f" | tr '\n' ' '
+  grep -E '^(agent|model|reasoningEffort|skillVersion|durationMinutes|filesChanged|linesAdded|result|  (typecheck|build|tests)):' "$f" | tr '\n' ' '
   echo
 done
 ```
 
 Check `skillVersion` equals the release you cut. A mismatch means the harness
 installed an older tag; the round does not count.
+
+Note each agent's `model`, and `reasoningEffort` where it is recorded, next to
+its score. The index pins one model per agent and moves to a new one by a
+decision in its changelog, not by anything the skill did. A change mid-loop does
+not stop it, but a score that moves across the change may be the model's rather
+than the fix's, so the round report and the final report name it.
 
 ## Download and read the logs
 
@@ -145,17 +151,20 @@ credentials on the machine, so it is the exception, not the routine.
 ```bash
 git clone https://github.com/timerise-ai/skills.git <scratchpad>/skills
 node <scratchpad>/skills/eval/run.mjs --skill-dir <target skill repo> \
-  --agent gemini-cli --prompt 1 --log <scratchpad>/gemini.log
+  --agent gemini-cli --prompt 1 --model <the result's model> --log <scratchpad>/gemini.log
+# for codex, also --reasoning <the result's reasoningEffort>
 # the app folder is printed as "Working in ..."; read it with git diff there
 ```
 
 A local rerun is for reading only. It installs the skill from the published
-repository, so it tests the released version; its result file is not
-committed, because a hand-started run is not the release's run.
+repository, so it tests the released version, and it runs on the model the
+release's result names, since a CLI's own default can differ from it; its
+result file is not committed, because a hand-started run is not the release's
+run.
 
 ## Checklist
 
 - [ ] The run's three eval jobs succeeded
-- [ ] Three result files pulled, `skillVersion` equals the release
+- [ ] Three result files pulled, `skillVersion` equals the release, each agent's `model` noted
 - [ ] Every log read: Codex's final diff, both summaries
 - [ ] Any doubt settled by a local rerun or recorded as doubt in the notes

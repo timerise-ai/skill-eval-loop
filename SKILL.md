@@ -51,7 +51,7 @@ the skill's non-negotiables.
 
 | Instead of this | Use |
 |---|---|
-| Writing a new skill, or extracting one from an app | `extract-skill` or `skill-creator` |
+| Writing a new skill, or turning an app's module into one | `extract-skill` or `skill-creator` |
 | Cutting one release without scoring evals | `bumpv` |
 | Checking an app's code against its docs | `code-audit` |
 | Changing the eval harness, the prompts or the workflow | the index repository, by a maintainer; never from inside this loop |

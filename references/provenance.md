@@ -22,6 +22,10 @@ fixed rubric and stop rule.
 Every one of the 21 runs passed typecheck, build and tests. That is the fact
 the skill is built on: `result: pass` measured nothing the loop needed.
 
+Claude Code kept one model in every run, and Gemini CLI in every run from
+0.3.3. Codex ran on one model through 0.3.4 and another from 0.3.5, so its
+baseline and its later rounds were not scored on the same model.
+
 ## What the session established
 
 ### 1. Passing checks hide template edits
@@ -84,6 +88,10 @@ Designed in this skill and never exercised in the recorded session:
 - **The two-of-three fallback after round five.** The session stopped at round
   three with a unanimous score.
 - **The dispatch round** for a round with nothing to fix before the minimum.
+- **The model in the reports.** The session's results record each agent's
+  model, but the session scored without comparing them; Codex's change between
+  the baseline and round 1 was read from its results afterwards. The local
+  rerun's `--model` flag follows from the index pinning each agent's model.
 - **The read_logs.py and extract_blocks.py scripts** as files. The session ran
   the same logic inline; the scripts here were written from it and checked
   against that session's logs.
