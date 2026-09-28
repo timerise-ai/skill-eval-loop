@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- `evals/prompts.md`: the prompts name no target skill, since the loop hardens
+  any skill; the runs of the earlier prompts, which named a sibling skill, are
+  removed.
+- `README.md`: the skill is described as hardening any Agent Skill with
+  automatic agent evals, not only Next.js modules; the path example is
+  generic.
+
 ## [0.1.1] - 2026-09-28
 
 Patch release, from scoring the prompt-1 agent eval runs against 0.1.0.

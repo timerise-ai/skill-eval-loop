@@ -28,9 +28,10 @@ not add figures that were not measured.
   activation, file table, six non-negotiables, requirements, *Not this*, contributing, footer.
 - `references/rubric.md`, `collecting.md`, `fixing.md`, `releasing.md`, `loop.md`, `provenance.md`: one topic
   each, loaded on demand.
-- `evals/`: `prompts.md` holds what a maintainer types after installing, in their words, each naming a
-  public sibling skill as the target; the first prompt is the agent eval run before every release. The skill
-  builds no code, so the checks only confirm the fixture app was left intact and the notes carry the score.
+- `evals/`: `prompts.md` holds what a maintainer types after installing, in their words, none naming a
+  target skill, since the loop hardens any skill; the first prompt is the agent eval run before every release.
+  The skill builds no code, so the checks only confirm the fixture app was left intact and the notes carry
+  the score.
   Every other file there is one eval run: measured frontmatter that is never edited, then the notes of the
   person who ran it. Add a prompt rather than rewording one that has results. The procedure is section 10 of
   the index's STANDARD.md.

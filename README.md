@@ -6,10 +6,10 @@
 [![Codex CLI](https://img.shields.io/badge/Codex_CLI-compatible-059669)](https://developers.openai.com/codex/skills)
 [![Gemini CLI](https://img.shields.io/badge/Gemini_CLI-compatible-059669)](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/skills.md)
 
-An [Agent Skill](https://agentskills.io) for skill maintainers. It hardens another skill, one that builds a
-module for **Next.js App Router** apps, from its automatic agent evals: score every run against a fixed
-fidelity rubric read from the agent's own log, fix the skill at the root cause of each deviation, cut a patch
-release, let the release re-run the evals, and repeat until Claude Code, Codex and Gemini CLI all score full.
+An [Agent Skill](https://agentskills.io) for skill maintainers. It hardens any other Agent Skill that ships
+templates or tests and runs automatic agent evals on its releases: score every run against a fixed fidelity
+rubric read from the agent's own log, fix the skill at the root cause of each deviation, cut a patch release,
+let the release re-run the evals, and repeat until Claude Code, Codex and Gemini CLI all score full.
 
 **An eval that passes its checks has not proved the agent used the skill as written.** The deviations live in
 the agent's log, not in the result's checks, and each one traces back to a sentence in the skill that allowed
@@ -62,7 +62,7 @@ Timerise Skills and how to install them all at once.
 The skill activates automatically when a maintainer asks to fix a skill from its evals, iterate it to a full
 score, or score its eval runs. Invoke it explicitly with `/skill-eval-loop` in Claude Code, `$skill-eval-loop`
 in Codex CLI, or from `/skills` in Gemini CLI, in the working directory of the skill to harden, or with its
-path: `/skill-eval-loop ../site-pin-gate`. `/skill-eval-loop score` scores the latest release's runs and
+path: `/skill-eval-loop ../my-skill`. `/skill-eval-loop score` scores the latest release's runs and
 stops, with no fix and no release.
 
 Each host matches a task against the description its own way, so invoke the skill explicitly on a first run
@@ -83,7 +83,7 @@ rather than assuming it fired. Only `SKILL.md` is read up front; the `references
 | `CHANGELOG.md` | One section per release, newest first |
 | `CLAUDE.md` | The editing conventions, for an agent editing this repository |
 | `LICENSE` | MIT |
-| `evals/` | The prompts a maintainer types after installing (`prompts.md`) and one file per agent eval: the skill installed into an empty Next.js app, one prompt naming a sibling skill, no help, then type-checked, built and tested |
+| `evals/` | The prompts a maintainer types after installing (`prompts.md`) and one file per agent eval: the skill installed into an empty Next.js app, one prompt that names no target skill, no help, then type-checked, built and tested |
 | `.github/workflows/agent-eval.yml` | The caller of the index's reusable eval workflow, run on every published release and on a maintainer's dispatch |
 
 The skill builds no code, so its evals score the agent's fidelity to the loop, not the app: the checks only
@@ -150,8 +150,8 @@ This is one of the [Timerise Skills](https://github.com/timerise-ai/skills): mod
 Router** apps written by our own senior engineers from the modules they have shipped, not synthetic, each
 published as its own repository and indexed there. They share one layout, so an agent that has read one knows
 how to read the next: a `SKILL.md` entry point, `references/` loaded on demand, and a seam contract carrying
-the module's non-negotiables. This one is for their maintainers: it turns the others' eval results into
-fixes.
+the module's non-negotiables. This one is for skill maintainers, of these or of any other skill: it turns
+a skill's eval results into fixes.
 
 ## Author
 
